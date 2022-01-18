@@ -1,0 +1,38 @@
+except noLoginIdError:
+        error["error"] = 1
+        error["message"] = "Login credentials were not received"
+    except wrogPasswordError:
+        error["error"] = 2
+        error["message"] = "Password or username not correct"
+    except playerError:
+        error["error"] = 3
+        error["message"] = "Player name or score missing"
+    except TypeError:
+        error["error"] = 4
+        error["message"] = "Score or another variable was not in correct format"
+    except ValueError:
+        error["error"] = 5
+        error["message"] = "Score or another variable has illegal value"
+    except fileError:
+        error["error"] = 6
+        error["message"] = "File was not found"
+    except IOError:
+        error["error"] = 7
+        error["message"] = "File read/write error"
+    except scoreLowError:
+        error["error"] = 8
+        error["message"] = "Player score too low. Player not saved"
+    except Exception:
+        error["error"] = 9
+        error["message"] = "Unidentified error. Please submit bug report to the dev team"
+
+Errors:
+    1 = noLoginIdError: The script did not receive credentials for authentication
+    2 = wrogPasswordError: The given password or username were incorrect
+    3 = playerError: information regarding player is missing. triggered if name or score is empty
+    4 = TypeError: standardi virhe. katso: https://docs.python.org/3/library/exceptions.html#TypeError
+    5 = ValueError: standardi virhe. katso: https://docs.python.org/3/library/exceptions.html#ValueError
+    6 = fileError: tulee kun scripti ei löydä tiedostoa mihinkä pelaajien tulokset tallennetaan.
+    7 = IOError: standardi virhe. Tulee kun input/output operaatio epäonnistuu. katso: https://docs.python.org/3/library/exceptions.html#IOError
+    8 =  scoreLowError: virhe joka ei oikeastaan ole virhe. Tulee kun käyttäjän pisteet eivät riittäneet top 10 listalle.
+    9 = Exception: Kaikki muut virheet. Pyytää lähettämään bugiraportin kehittäjille.
